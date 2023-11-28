@@ -1,5 +1,5 @@
-###########
-# VonixOS #
+#############
+# VanillaOS #
 ###################
 # Default Profile #
 ###################
@@ -14,7 +14,7 @@ let
    config   = { allowUnfree = true; }; 
  };
 in { 
- window-manager = lib.nixosSystem {
+ desktop = lib.nixosSystem {
    inherit system;
    modules = [
      ./machine

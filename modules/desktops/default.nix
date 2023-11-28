@@ -1,8 +1,8 @@
-###########
-# VonixOS #
-#################
-# Default WM/DE #
-#################
+#############
+# VanillaOS #
+##############
+# Default DE #
+##############
 [
- ./sway/default.nix
+ ./gnome/default.nix
 ]

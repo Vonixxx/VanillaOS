@@ -1,5 +1,5 @@
-###########
-# VonixOS #
+#############
+# VanillaOS #
 #######################
 # NixOS Configuration #
 #######################
@@ -8,8 +8,7 @@
 {
  imports = ( 
    import ../modules/desktops ++
-   import ../modules/programs ++
-   import ../modules/terminal
+   import ../modules/programs 
  );
 
  system.stateVersion = "23.11"; 
@@ -20,38 +19,17 @@
    home.stateVersion            = "23.11";
  };
 
- environment.systemPackages = with pkgs; [
-   ##################
-   # Terminal/Tools #
-   ##################
-   coreutils
-   efibootmgr
-   ghc
-   killall
-   parted
-   pciutils
-   pfetch-rs
-   ripgrep
-   tldr
-   tutanota-desktop
-   usbutils
-   virt-manager
-   wev
-   wget
-   ################
-   # Applications #
-   ################
-   freetube
-   libreoffice-fresh
-   mkpasswd
-   mediainfo
-   nixos-generators
+ fonts.packages = with pkgs; [
+   liberation_ttf
  ];
 
- programs = {
-   zsh.enable   = true;
-   dconf.enable = true;
- };
+ environment.systemPackages = with pkgs; [
+   coreutils
+   freetube
+   libreoffice-fresh
+ ];
+
+ programs.dconf.enable = true;
 
  hardware.opengl = {
    enable          = true;
@@ -73,12 +51,10 @@
  security = {
    rtkit.enable            = true;
    polkit.enable           = true;
-   sudo.wheelNeedsPassword = false;
+   sudo.wheelNeedsPassword = true;
  };
 
  i18n.defaultLocale = "en_GB.UTF-8";
-
- virtualisation.libvirtd.enable = true;
 
  services = {
    pipewire = {
@@ -88,16 +64,14 @@
      alsa.support32Bit = true;
    };
    automatic-timezoned.enable = true;
-   udev = {
-     enable = true;
-     packages = with pkgs; [ android-udev-rules ];
-   };
  };
 
- fonts.packages = with pkgs; [
-   liberation_ttf
-   (nerdfonts.override { fonts = [ "${vars.font}" ]; })
- ];
+ system.autoUpgrade = {
+   enable     = true;  
+   persistent = true;
+   dates      = "daily";
+   flake      = "github:Vonixxx/VanillaOS";
+ };
 
  nix = {
    gc = {
@@ -111,23 +85,11 @@
    };
  }; 
 
- environment = {
-   shells = with pkgs; [ zsh ];
-   variables = {
-     VISUAL   = "hx";
-     TERMINAL = "hx";
-     EDITOR   = "kitty";
-     BROWSER  = "firefox";
-     PF_INFO  = "ascii title uptime pkgs kernel memory os host";
-   };
- };
-
  users = {
-   defaultUserShell = with pkgs; zsh;
    users.${vars.user} = {
      isNormalUser   = true;
      hashedPassword = "${vars.password}";
-     extraGroups    = [ "audio" "users" "video" "wheel" "libvirtd" "networkmanager" ];
+     extraGroups    = [ "audio" "users" "video" "wheel" "networkmanager" ];
    };
  };
 }
