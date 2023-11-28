@@ -8,10 +8,6 @@
 {
  imports = [ ./hardware-configuration.nix ];
 
- sway.enable = true;
-
- programs.light.enable = true;
-
  services = {
    tlp.settings = {
      enable              = true;

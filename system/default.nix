@@ -14,7 +14,7 @@ let
    config   = { allowUnfree = true; }; 
  };
 in { 
- desktop = lib.nixosSystem {
+ default = lib.nixosSystem {
    inherit system;
    modules = [
      ./machine
