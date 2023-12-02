@@ -8,13 +8,6 @@
 {
  imports = [ ./hardware-configuration.nix ];
 
- services = {
-   tlp.settings = {
-     enable              = true;
-     auto-cpufreq.enable = true;
-   };
- };
-
  boot = {
    loader = {
      timeout = 5;
