@@ -1,27 +1,28 @@
-##################
-# Do Not Modify! #
-##################
-{ lib, pkgs, config, modulesPath, ... }:
+# Do Not Modify!
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
- imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
- fileSystems."/boot" = { 
-   fsType = "vfat";  
-   device = "/dev/disk/by-uuid/943B-EF43";
- };
+  boot.extraModulePackages           = [ ];
+  boot.initrd.kernelModules          = [ ];
+  boot.kernelModules                 = [ "kvm-intel" ];
+  boot.initrd.availableKernelModules = [ "vmd" "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
 
- fileSystems."/" = { 
-   fsType = "ext4"; 
-   device = "/dev/disk/by-uuid/72a5d396-e5bd-42d7-b584-f138a12b64f8";
- };
+  fileSystems."/boot" = { 
+    fsType = "vfat";
+    device = "/dev/disk/by-uuid/B18A-8BD8";
+  };
 
- boot.extraModulePackages           = [ ];
- boot.initrd.kernelModules          = [ ];
- boot.kernelModules                 = [ "kvm-amd" ];
- boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+  fileSystems."/" = { 
+    fsType = "ext4";
+    device = "/dev/disk/by-uuid/081d74a4-5d25-4abf-b443-17306c9568a4";
+  };
 
- networking.useDHCP               = lib.mkDefault true;
- nixpkgs.hostPlatform             = lib.mkDefault "x86_64-linux";
- hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  swapDevices = [ { device = "/dev/disk/by-uuid/cb0fdf3d-d42e-4750-94a5-ced94489b4ef"; } ];
+
+  networking.useDHCP = lib.mkDefault true;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

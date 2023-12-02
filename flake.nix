@@ -33,7 +33,7 @@
  let
   vars = {
     user     = "bubinka";
-    password = "$6$vheawoZJxxe9N7Ml$sGnV.OE9HFDY0MQzDLUuSX38f8GPPus.cD45ptYi.Whyx1aJ5xEuHUYoz0LT/CcDP5dFbw7AdOeG7hahoeA170";
+    password = "$y$j9T$j4XdiiJDNChxSDi67jnYB.$llCR337RvYZZ2TW6dLDXedNuJXayzmlT9I8CijL2M41";
   };
  in {
    nixosConfigurations = (
