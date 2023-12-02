@@ -19,6 +19,7 @@
  };
  
  environment.systemPackages = with pkgs.gnomeExtensions; [
+   arcmenu
    burn-my-windows
    dash-to-panel
    openweather
