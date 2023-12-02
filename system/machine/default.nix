@@ -8,6 +8,11 @@
 {
  imports = [ ./hardware-configuration.nix ];
 
+ services = { 
+   tlp.enable                   = true; 
+   power-profiles-daemon.enable = false;
+ };
+
  boot = {
    loader = {
      timeout = 5;
