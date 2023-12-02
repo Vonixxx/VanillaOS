@@ -13,7 +13,10 @@
      gnome.enable = true;
    };
    displayManager = {
-     gdm.enable = true;
+     gdm = { 
+       enable = true; 
+       wayland = true;
+     };
      defaultSession = "gnome";
    };
  };
@@ -29,6 +32,7 @@
  environment.gnome.excludePackages = with pkgs.gnome; [
    atomix
    epiphany
+   gnome-shell-extensions
    hitori
    iagno
    tali
