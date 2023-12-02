@@ -3,7 +3,7 @@
 #######################
 # Gnome Configuration #
 #######################
-{ config, ... }:
+{ pkgs, config, ... }:
 
 {
  services.xserver = {
