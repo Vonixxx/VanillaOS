@@ -22,40 +22,6 @@
 	     darkreader
 	     ublock-origin
      ];
-     bookmarks = [
-       {
-  	    name = "GitHub";
-  	    url  = "https://github.com";
-  	   }
-       {
-  	    name = "ChatGPT";
-  	    url  = "https://chat.openai.com";
-  	   }
-       {
-  	    name = "Roadmap";
-  	    url  = "https://roadmap.sh/devops";
-  	   }
-       {
-  	    name = "Tutanota";
-  	    url  = "https://mail.tutanota.com";
-  	   }
-       {
-  	    name = "Nix User Repository";
-  	    url  = "https://nur.nix-community.org";
-  	   }
-       {
-  	    name = "NixOS";
-  	    url  = "https://search.nixos.org/packages";
-  	   }
-       {
-  	    name = "Certificates";
-  	    url  = "https://devopscube.com/best-devops-certifications";
-  	   }
-       {
-  	    name = "Home-Manager";
-  	    url  = "https://mipmip.github.io/home-manager-option-search";
-  	   }
-     ];
      settings = {
          #########################
   	     # Document Object Model #
