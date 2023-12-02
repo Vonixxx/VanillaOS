@@ -72,7 +72,7 @@
    enable     = true;  
    persistent = true;
    dates      = "daily";
-   flake      = "github:Vonixxx/VanillaOS";
+   flake      = "github:Vonixxx/VanillaOS#default";
  };
 
  nix = {
