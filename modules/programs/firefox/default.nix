@@ -13,18 +13,34 @@
        id        = 0;
        isDefault = true;
        search = { 
-	     force   = true;
-	     default = "DuckDuckGo";
-     };
-     name           = "default";
-     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-       bitwarden
-	     darkreader
-	     ublock-origin
-     ];
-     settings = {
+  	     force   = true;
+  	     default = "DuckDuckGo";
+       };
+       bookmarks = [
+         {
+          name = "Coohom";
+          url  = "https://www.coohom.com";
+         }
+         {
+          name = "ChatGPT";
+          url  = "https://chat.openai.com";
+         }
+         {
+          name = "Tutanota";
+          url  = "https://mail.tutanota.com/login";
+         }
+         {
+          name = "Teams";
+          url  = "https://www.microsoft.com/en-us/microsoft-teams/log-in";
+         }
+       ];
+       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+         bitwarden
+  	     ublock-origin
+       ];
+       settings = {
          #########################
-  	     # Document Object Model #
+    	   # Document Object Model #
          #########################
          "dom.disable_window_move_resize" = true;
          ##############
@@ -33,17 +49,17 @@
          "privacy.userContext.enabled"    = true;
          "privacy.userContext.ui.enabled" = true;
          ###########
-  	     # Studies #
+    	   # Studies #
          ###########
          "app.normandy.api_url"             = "";
          "app.shield.optoutstudies.enabled" = false;
          "app.normandy.enabled"             = false;
          ################################
-  	     # Enhanced Tracking Protection #
+    	   # Enhanced Tracking Protection #
          ################################
          "browser.contentblocking.category" = "strict";
          ###########################
-  	     # Shutdown and Sanitizing #
+    	   # Shutdown and Sanitizing #
          ###########################
          "privacy.clearOnShutdown.cookies"      = true;
          "privacy.clearOnShutdown.formdata"     = true;
@@ -55,13 +71,13 @@
          "privacy.sanitize.sanitizeOnShutdown"  = false;
          "privacy.clearOnShutdown.siteSettings" = false;
          #########
-  	     # Other #
+    	   # Other #
          #########
          "captivedetect.canonicalURL"             = "";
          "network.captive-portal-service.enabled" = false;
          "network.connectivity-service.enabled"   = false;
          ###########################
-  	     # Essential: Leave As Is! #
+    	   # Essential: Leave As Is! #
          ###########################
          "security.dialog_enable_delay"           = 1000;
          "extensions.blocklist.enabled"           = true;
@@ -72,22 +88,22 @@
          "extensions.webcompat-reporter.enabled"  = false;
          "security.tls.version.enable-deprecated" = false;
          #################
-  	     # Safe Browsing #
+    	   # Safe Browsing #
          #################
          "browser.safebrowsing.malware.enabled"   = false;
          "browser.safebrowsing.phishing.enabled"  = false;
          "browser.safebrowsing.downloads.enabled" = false;
          ############
-  	     # Referers #
+    	   # Referers #
          ############
          "network.http.referer.XOriginTrimmingPolicy" = 2;
          #############
-  	     # Passwords #
+    	   # Passwords #
          #############
          "network.auth.subresource-http-auth-allow" = 1;
          "signon.autofillForms"                     = false;
          ##################
-  	     # Disk Avoidance #
+    	   # Disk Avoidance #
          ##################
          "browser.sessionstore.privacy_level"            = 2;
          "browser.cache.disk.enable"                     = true;
@@ -95,7 +111,7 @@
          "browser.shell.shortcutFavicons"                = false;
          "media.memory_cache_max_size"                   = 65536;
          ##########################################################
-  	     # Location & Search Bars, Suggestions, History and Forms #
+    	   # Location & Search Bars, Suggestions, History and Forms #
          ##########################################################
          "browser.formfill.enable"                          = false;
          "browser.search.suggest.enabled"                   = false;
@@ -110,13 +126,13 @@
          "browser.urlbar.suggest.quicksuggest.sponsored"    = false;
          "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
          #################
-  	     # Crash Reports #
+    	   # Crash Reports #
          #################
          "breakpad.reportURL"                                 = "";
          "browser.tabs.crashReporting.sendReport"             = false;
          "browser.crashReports.unsubmittedCheck.autoSubmit2"  = false;
          #########################
-  	     # Resist Fingerprinting #
+    	   # Resist Fingerprinting #
          #########################
          "browser.link.open_newwindow"                        = 3;
          "browser.link.open_newwindow.restriction"            = 0;
@@ -129,7 +145,7 @@
          "browser.display.use_system_colors"                  = false;
          "privacy.resistFingerprinting.letterboxing"          = false;
          #############
-  	     # Quiet Fox #
+    	   # Quiet Fox #
          #############
          "browser.discovery.enabled"                          = false;
          "extensions.getAddons.showPane"                      = false;
@@ -141,7 +157,7 @@
          "media.peerconnection.ice.default_address_only"       = true;
          "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
          #################
-  	     # Miscellaneous #
+    	   # Miscellaneous #
          #################
          "extensions.enabledScopes"                              = 5;
          "extensions.autoDisableScopes"                          = 15;
@@ -228,7 +244,7 @@
       	 "font.name.serif.x-western"         = "Liberation Serif";
          "lightweightThemes.selectedThemeID" = "firefox-compact-dark@mozilla.org";
          ###########
-  	     # Startup #
+    	   # Startup #
          ###########
          "browser.startup.page"                                     = 3;
          "browser.newtabpage.activity-stream.default.sites"         = "";
