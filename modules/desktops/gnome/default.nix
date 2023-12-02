@@ -38,5 +38,5 @@
    tali
  ];
 
- programs.bash.shellAliases = { update = "sudo nix flake update 'github:Vonixxx/VanillaOS' && sudo nixos-rebuild switch --no-write-lock-file --flake 'github:Vonixxx/VanillaOS#default'"};
+ programs.bash.shellAliases = { update = "sudo nix flake update 'github:Vonixxx/VanillaOS' && sudo nixos-rebuild switch --no-write-lock-file --flake 'github:Vonixxx/VanillaOS#default'"; };
 }
