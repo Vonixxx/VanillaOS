@@ -22,7 +22,6 @@
    arcmenu
    burn-my-windows
    dash-to-panel
-   openweather
    user-themes
  ];
 
