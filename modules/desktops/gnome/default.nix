@@ -6,19 +6,22 @@
 { pkgs, config, ... }:
 
 {
- services.xserver = {
-   layout = "cz";
-   enable = true;
-   desktopManager = {
-     gnome.enable = true;
-   };
-   displayManager = {
-     gdm = { 
-       enable = true; 
-       wayland = true;
+ services = {
+   xserver = {
+     layout = "cz";
+     enable = true;
+     desktopManager = {
+       gnome.enable = true;
      };
-     defaultSession = "gnome";
+     displayManager = {
+       gdm = { 
+         enable = true; 
+         wayland = true;
+       };
+       defaultSession = "gnome";
+     };
    };
+   logind.lidSwitch = "poweroff";
  };
  
  environment.systemPackages = with pkgs.gnomeExtensions; [
