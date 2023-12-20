@@ -3,7 +3,7 @@
 ###################
 # Default Profile #
 ###################
-{ lib, nur, vars, inputs, nixpkgs, home-manager, ... }:
+{ lib, nur, vars, inputs, nixpkgs, arkenfox, home-manager, ... }:
 
 let
  lib    = nixpkgs.lib;
