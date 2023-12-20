@@ -21,6 +21,6 @@
      enable             = true;
    };
 
-   efi = { canTouchEfiVariables = true; };
+   loader.efi = { canTouchEfiVariables = true; };
  };
 }
