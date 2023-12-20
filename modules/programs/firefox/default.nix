@@ -66,7 +66,7 @@
            };
 
            "5000".enable = true;
-           "5500".enable = true;
+           "5500".enable = false;
 
            "6000".enable = true;
 
