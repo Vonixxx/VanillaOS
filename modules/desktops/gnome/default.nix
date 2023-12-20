@@ -10,9 +10,11 @@
    xserver = {
      layout = "cz";
      enable = true;
+
      desktopManager = {
        gnome.enable = true;
      };
+
      displayManager = {
        gdm = { 
          enable = true; 
@@ -21,6 +23,7 @@
        defaultSession = "gnome";
      };
    };
+
    logind.lidSwitch = "poweroff";
  };
  

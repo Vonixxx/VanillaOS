@@ -3,7 +3,7 @@
 #######################
 # NixOS Configuration #
 #######################
-{ lib, nur, pkgs, vars, config, inputs, home-manager, ... }:
+{ lib, nur, pkgs, vars, config, inputs, arkenfox, home-manager, ... }:
 
 {
  imports = ( 
@@ -14,7 +14,10 @@
  system.stateVersion = "23.11"; 
 
  home-manager.users.${vars.user} = {
-   imports = [ nur.nixosModules.nur ];
+   imports = [ 
+     nur.nixosModules.nur 
+     arkenfox.hmModules.arkenfox
+   ];
    programs.home-manager.enable = true;
    home.stateVersion            = "23.11";
  };
@@ -35,6 +38,7 @@
    enable          = true;
    driSupport      = true;
    driSupport32Bit = true;
+
    extraPackages = with pkgs; [
      vaapiVdpau
      libvdpau-va-gl
@@ -65,6 +69,7 @@
      pulse.enable      = true;
      alsa.support32Bit = true;
    };
+
    automatic-timezoned.enable = true;
  };
 
@@ -81,6 +86,7 @@
      dates     = "weekly";
      options   = "--delete-older-than 3d";
    };
+
    settings = {
      auto-optimise-store   = true;
      experimental-features = [ "nix-command" "flakes" ];
