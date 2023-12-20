@@ -13,7 +13,7 @@
    power-profiles-daemon.enable = false;
  };
 
- boot = {
+ boot.loader = {
    timeout = 5;
 
    systemd-boot = {
@@ -21,6 +21,6 @@
      enable             = true;
    };
 
-   loader.efi = { canTouchEfiVariables = true; };
+   efi = { canTouchEfiVariables = true; };
  };
 }
