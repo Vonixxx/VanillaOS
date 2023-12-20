@@ -27,6 +27,6 @@ in {
      }
    ];
 
-   specialArgs = { inherit nur pkgs vars inputs system; };
+   specialArgs = { inherit nur pkgs vars inputs arkenfox system; };
  };
 }
