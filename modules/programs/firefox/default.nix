@@ -1,5 +1,5 @@
-###########
-# VonixOS #
+#############
+# VanillaOS #
 #########################
 # FireFox Configuration #
 #########################
@@ -55,8 +55,19 @@
          "0600".enable = true;
          "0700".enable = true;
          "0800".enable = true;
-         "0900".enable = true;
-         "1000".enable = true;
+
+         "0900" = {
+           enable = true;
+
+           "0904"."signon.formlessCapture.enabled".value = true;
+         };
+
+         "1000" = { 
+           enable = true;
+
+           "1001"."browser.cache.disk.enable".value = true;
+         };
+
          "1200".enable = true;
          "1600".enable = true;
          "1700".enable = true;
@@ -77,16 +88,21 @@
              "privacy.clearOnShutdown.siteSettings".value = false;
            };
 
+           "2812"."privacy.clearOnShutdown.openWindows".value = false;
+
            "2815" = {
              "privacy.clearOnShutdown.cookies".value     = false;
              "privacy.clearOnShutdown.offlineApps".value = false;
            };
-
-           "2812"."privacy.clearOnShutdown.openWindows".value = false;
          };
 
          "4500" = {
            enable = true;
+
+           "4501" = {
+             "privacy.resistFingerprinting".value        = false;
+             "privacy.resistFingerprinting.pbmode".value = false;
+           };
 
            "4504"."privacy.resistFingerprinting.letterboxing".value = false;
            "4520"."webgl.disabled".value                            = false;
