@@ -69,12 +69,17 @@
            enable = true;
 
            "2811" = {
-             "privacy.clearOnShutdown.formdata".value     = true;
              "privacy.clearOnShutdown.downloads".value    = true;
              "privacy.clearOnShutdown.cache".value        = false;
              "privacy.clearOnShutdown.history".value      = false;
+             "privacy.clearOnShutdown.formdata".value     = false;
              "privacy.clearOnShutdown.sessions".value     = false;
              "privacy.clearOnShutdown.siteSettings".value = false;
+           };
+
+           "2815" = {
+             "privacy.clearOnShutdown.cookies".value     = false;
+             "privacy.clearOnShutdown.offlineApps".value = false;
            };
 
            "2812"."privacy.clearOnShutdown.openWindows".value = false;
