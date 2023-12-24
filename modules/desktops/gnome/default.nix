@@ -28,10 +28,6 @@
  };
 
  hardware.pulseaudio.enable = false;
- 
- environment.systemPackages = with pkgs.gnome; [
-   gnome-tweaks
- ];
 
  environment.systemPackages = with pkgs.gnomeExtensions; [
    arcmenu
@@ -41,14 +37,16 @@
    user-themes
  ];
 
- environment.gnome.excludePackages = with pkgs.gnome; [
+ environment.gnome.excludePackages = (with pkgs.gnome; [
    atomix
    epiphany
    gnome-shell-extensions
    hitori
    iagno
    tali
- ];
+ ]) ++ (with pkgs.gnome; [
+    gnome-tweaks
+ ]);
 
  programs.bash.shellAliases = { update = "sudo nix flake update 'github:Vonixxx/VanillaOS' && sudo nixos-rebuild switch --no-write-lock-file --flake 'github:Vonixxx/VanillaOS#default'"; };
 }
