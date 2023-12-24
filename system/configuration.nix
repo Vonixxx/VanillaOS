@@ -30,6 +30,7 @@
    appimage-run
    coreutils
    freetube
+   jdk17
    libreoffice-fresh
  ];
 
