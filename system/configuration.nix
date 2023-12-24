@@ -30,6 +30,7 @@
    coreutils
    freetube
    libreoffice-fresh
+   prismlauncher
  ];
 
  programs.dconf.enable = true;
