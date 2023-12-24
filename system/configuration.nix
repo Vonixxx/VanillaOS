@@ -27,10 +27,10 @@
  ];
 
  environment.systemPackages = with pkgs; [
+   appimage-run
    coreutils
    freetube
    libreoffice-fresh
-   prismlauncher
  ];
 
  programs.dconf.enable = true;
