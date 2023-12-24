@@ -29,13 +29,15 @@
 
  hardware.pulseaudio.enable = false;
 
- environment.systemPackages = with pkgs.gnomeExtensions; [
+ environment.systemPackages = (with pkgs.gnomeExtensions; [
    arcmenu
    burn-my-windows
    dash-to-panel
    space-bar
    user-themes
- ];
+ ]) ++ (with pkgs.gnome; [
+    gnome-tweaks
+ ]);
 
  environment.gnome.excludePackages = (with pkgs.gnome; [
    atomix
@@ -44,9 +46,7 @@
    hitori
    iagno
    tali
- ]) ++ (with pkgs.gnome; [
-    gnome-tweaks
- ]);
+ ];
 
  programs.bash.shellAliases = { update = "sudo nix flake update 'github:Vonixxx/VanillaOS' && sudo nixos-rebuild switch --no-write-lock-file --flake 'github:Vonixxx/VanillaOS#default'"; };
 }
