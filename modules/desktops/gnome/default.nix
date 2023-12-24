@@ -39,7 +39,7 @@
     gnome-tweaks
  ]);
 
- environment.gnome.excludePackages = (with pkgs.gnome; [
+ environment.gnome.excludePackages = with pkgs.gnome; [
    atomix
    epiphany
    gnome-shell-extensions
