@@ -62,8 +62,6 @@
 
  i18n.defaultLocale = "en_GB.UTF-8";
 
- hardware.pulseaudio.enable = false;
-
  services = {
    pipewire = {
      enable            = true;
@@ -73,13 +71,6 @@
    };
 
    automatic-timezoned.enable = true;
- };
-
- system.autoUpgrade = {
-   enable     = true;  
-   persistent = true;
-   dates      = "daily";
-   flake      = "github:Vonixxx/VanillaOS#default";
  };
 
  nix = {

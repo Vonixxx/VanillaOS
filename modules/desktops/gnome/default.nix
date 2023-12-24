@@ -26,7 +26,13 @@
 
    logind.lidSwitch = "poweroff";
  };
+
+ hardware.pulseaudio.enable = false;
  
+ environment.systemPackages = with pkgs.gnome; [
+   gnome-tweaks
+ ];
+
  environment.systemPackages = with pkgs.gnomeExtensions; [
    arcmenu
    burn-my-windows
